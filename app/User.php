@@ -28,6 +28,17 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function questions()
+    {
+        return $this->hasmany(Question::class);
+    }
+
+    public fu] setTitleAttribute($value)
+    {
+        $this->attributes['title'] = $value;
+        $this->attributes['slug'] = Str::slug($value);
+    }
+
     /**
      * The attributes that should be cast to native types.
      *
